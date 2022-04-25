@@ -1,0 +1,43 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-4">
+        <input type="text" class="form-control" placeholder="Search by Name" [(ngModel)]="searchTitle" />
+        <div class="input-group-append">
+          <!-- <button class="btn btn-outline-secondary" type="button" (click)="searchByTitle()">
+            Search
+          </button> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <h4>Book List</h4>
+  
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Card Number</th>
+            <th scope="col" style="min-width: 150px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let payments of payments;">
+            <th scope="row">{{payments.paymentDetailId}}</th>
+            <td><b>{{payments.cardOwnerName}}</b></td>
+            <td>{{payments.cardNumber}}</td>
+            <td>
+              <button type="button" class="btn btn-danger" routerLink="/book/{{payments.paymentDetailId}}">Edit</button>
+              <!-- <button type="button" class="btn btn-warning" (click)="deleteBook(book.id)">Delete</button>
+             -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-paginator #paginator 
+               [length]="2" 
+               [pageSize]="2" 
+               [pageSizeOptions]="[1000]">
+</mat-paginator>
+    </div>
+  </div>
